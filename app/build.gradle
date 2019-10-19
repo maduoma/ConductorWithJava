@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.alc.android.conductorwithjava"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                includeCompileClasspath false
+//            }
+//        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    //android.defaultConfig.javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = false
+
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.bluelinelabs:conductor:2.1.4'
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    implementation 'com.jakewharton:butterknife-compiler:8.4.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //Error: Annotation processors must be explicitly declared now.
+    // Adds libraries defining annotations to only the compile classpath.
+    //compileOnly 'com.google.dagger:dagger:version-number'
+    // Adds the annotation processor dependency to the annotation processor classpath.
+    //annotationProcessor 'com.google.dagger:dagger-compiler:version-number'
+    //compileOnly 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    //annotationProcessor 'com.google.auto.service:auto-service:1.0-rc2'
+    //implementation 'androidx.annotation:annotation:1.1.0'
+    //annotationProcessor 'androidx.annotation:annotation:1.1.0'
+
+}
